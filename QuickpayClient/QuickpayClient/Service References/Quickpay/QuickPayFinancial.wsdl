@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://mwallet.oberthur.com/MWalletQuickPayService/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="QuickPayFinancial" targetNamespace="http://mwallet.oberthur.com/MWalletQuickPayService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://mwallet.oberthur.com/MWalletQuickPayService/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="BaseHeaderType" type="tns:baseHeader" />
+      <xs:element name="CancelAuthResponseType" type="tns:cancelAuthResponse" />
+      <xs:element name="CancelAuthorization" type="tns:CancelAuthorization" />
+      <xs:element name="CancelAuthorizationRequestType" type="tns:cancelAuthorizationRequest" />
+      <xs:element name="CancelAuthorizationResponse" type="tns:CancelAuthorizationResponse" />
+      <xs:element name="CancelAuthorizationReversal" type="tns:CancelAuthorizationReversal" />
+      <xs:element name="CancelAuthorizationReversalResponse" type="tns:CancelAuthorizationReversalResponse" />
+      <xs:element name="CardHeaderType" type="tns:cardHeader" />
+      <xs:element name="CardPaymentHeaderType" type="tns:cardPaymentHeader" />
+      <xs:element name="CreditAuthorization" type="tns:CreditAuthorization" />
+      <xs:element name="CreditAuthorizationRequestType" type="tns:creditAuthRequest" />
+      <xs:element name="CreditAuthorizationResponse" type="tns:CreditAuthorizationResponse" />
+      <xs:element name="CreditAuthorizationResponseType" type="tns:creditAuthResponse" />
+      <xs:element name="CreditAuthorizationReversal" type="tns:CreditAuthorizationReversal" />
+      <xs:element name="CreditAuthorizationReversalResponse" type="tns:CreditAuthorizationReversalResponse" />
+      <xs:element name="CreditLegalInfoArgentinaType" type="tns:creditLegalInfoArgentina" />
+      <xs:element name="CreditLegalInfoChileType" type="tns:creditLegalInfoChile" />
+      <xs:element name="CreditLegalInfoHeaderType" type="tns:creditLegalInfoHeader" />
+      <xs:element name="CreditLegalInfoPeruType" type="tns:creditLegalInfoPeru" />
+      <xs:element name="DebitAuthorization" type="tns:DebitAuthorization" />
+      <xs:element name="DebitAuthorizationRequestType" type="tns:debitAuthRequest" />
+      <xs:element name="DebitAuthorizationResponse" type="tns:DebitAuthorizationResponse" />
+      <xs:element name="DebitAuthorizationResponseType" type="tns:debitAuthResponse" />
+      <xs:element name="DebitAuthorizationReversal" type="tns:DebitAuthorizationReversal" />
+      <xs:element name="DebitAuthorizationReversalResponse" type="tns:DebitAuthorizationReversalResponse" />
+      <xs:element name="MerchantHeaderType" type="tns:merchantHeader" />
+      <xs:element name="Preauthorization" type="tns:Preauthorization" />
+      <xs:element name="PreauthorizationRequestType" type="tns:preAuthRequest" />
+      <xs:element name="PreauthorizationResponse" type="tns:PreauthorizationResponse" />
+      <xs:element name="PreauthorizationResponseType" type="tns:preAuthResponse" />
+      <xs:element name="PreauthorizationReversal" type="tns:PreauthorizationReversal" />
+      <xs:element name="PreauthorizationReversalResponse" type="tns:PreauthorizationReversalResponse" />
+      <xs:element name="Product" type="tns:product" />
+      <xs:element name="ProductListHeaderType" type="tns:productListHeader" />
+      <xs:element name="PurchaseOrderHeaderType" type="tns:purchaseOrderHeader" />
+      <xs:element name="RiskAssessmentHeaderType" type="tns:riskAssessmentHeader" />
+      <xs:element name="SpecialRateType" type="tns:specialRate" />
+      <xs:element name="UserHeaderType" type="tns:userHeader" />
+      <xs:element name="Void" type="tns:Void" />
+      <xs:element name="VoidRequestType" type="tns:voidRequest" />
+      <xs:element name="VoidResponse" type="tns:VoidResponse" />
+      <xs:element name="VoidTxnResponseType" type="tns:voidTxnResponse" />
+      <xs:complexType name="Preauthorization">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PreauthorizationRequest" type="tns:preAuthRequest" />
+          <xs:element minOccurs="0" name="MerchantHeader" type="tns:merchantHeader" />
+          <xs:element minOccurs="0" name="UserHeader" type="tns:userHeader" />
+          <xs:element minOccurs="0" name="CardHeader" type="tns:cardHeader" />
+          <xs:element minOccurs="0" name="CardPaymentHeader" type="tns:cardPaymentHeader" />
+          <xs:element minOccurs="0" name="ProductListHeader" type="tns:productListHeader" />
+          <xs:element minOccurs="0" name="RiskAssessmentHeader" type="tns:riskAssessmentHeader" />
+          <xs:element minOccurs="0" name="PurchaseOrderHeader" type="tns:purchaseOrderHeader" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="preAuthRequest">
+        <xs:sequence>
+          <xs:element name="customerEmailAddress" type="xs:string" />
+          <xs:element name="customerPhoneNumber" type="xs:string" />
+          <xs:element name="weddingCode" type="xs:string" />
+          <xs:element name="dispatchType" type="tns:dispatchType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="merchantHeader">
+        <xs:sequence>
+          <xs:element name="merchantId" type="xs:string" />
+          <xs:element name="branchId" type="xs:int" />
+          <xs:element name="terminalId" type="xs:int" />
+          <xs:element name="timestamp" type="xs:dateTime" />
+          <xs:element name="merchTxnId" type="xs:string" />
+          <xs:element name="signature" type="xs:string" />
+          <xs:element minOccurs="0" name="logicalTxnId" type="xs:string" />
+          <xs:element name="channel" type="tns:channel" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="userHeader">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="country" type="tns:country" />
+          <xs:element minOccurs="0" name="documentType" type="tns:documentType" />
+          <xs:element minOccurs="0" name="documentId" type="xs:string" />
+          <xs:element minOccurs="0" name="qpUserId" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cardHeader">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="pan" type="xs:string" />
+          <xs:element minOccurs="0" name="expDate" type="xs:string" />
+          <xs:element minOccurs="0" name="cvv" type="xs:string" />
+          <xs:element minOccurs="0" name="qpCardId" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cardPaymentHeader">
+        <xs:sequence>
+          <xs:element name="amount" type="xs:decimal" />
+          <xs:element name="currency" type="tns:currency" />
+          <xs:element name="installments" type="xs:int" />
+          <xs:element name="deferred" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="productListHeader">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="products">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="product" type="tns:product" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="product">
+        <xs:sequence>
+          <xs:element name="sku" type="xs:string" />
+          <xs:element name="category" type="xs:string" />
+          <xs:element name="pricePerUnit" type="xs:decimal" />
+          <xs:element name="quantity" type="xs:int" />
+          <xs:element name="totalPrice" type="xs:decimal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="riskAssessmentHeader">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="eCommerceRiskScore" type="xs:int" />
+          <xs:element minOccurs="0" name="eCommerceRiskFlags" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="purchaseOrderHeader">
+        <xs:sequence>
+          <xs:element name="purchaseOrderId" type="xs:string" />
+          <xs:element name="purchaseOrderDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PreauthorizationResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PreauthorizationResponse" type="tns:preAuthResponse" />
+          <xs:element minOccurs="0" name="BaseHeader" type="tns:baseHeader" />
+          <xs:element minOccurs="0" name="CreditLegalInfoHeader" type="tns:creditLegalInfoHeader" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="preAuthResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="preauthorizationCode" type="xs:string" />
+          <xs:element minOccurs="0" name="totalAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="currency" type="tns:currency" />
+          <xs:element minOccurs="0" name="installments" type="xs:int" />
+          <xs:element minOccurs="0" name="installmentAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="deferred" type="xs:int" />
+          <xs:element minOccurs="0" name="nextPaymentDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="interestRate" type="xs:decimal" />
+          <xs:element minOccurs="0" name="taxes" type="xs:decimal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="baseHeader">
+        <xs:sequence>
+          <xs:element name="qpTxnId" type="xs:string" />
+          <xs:element name="responseCode" type="xs:int" />
+          <xs:element name="responseDesc" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="creditLegalInfoHeader">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="argentinaLegalInfo" type="tns:creditLegalInfoArgentina" />
+          <xs:element minOccurs="0" name="chileLegalInfo" type="tns:creditLegalInfoChile" />
+          <xs:element minOccurs="0" name="peruLegalInfo" type="tns:creditLegalInfoPeru" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="creditLegalInfoArgentina">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="financialSurcharge" type="xs:decimal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="creditLegalInfoChile">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="caeValue" type="xs:decimal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="creditLegalInfoPeru">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="specialRate" type="tns:specialRate" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="specialRate">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="name" type="tns:rateType" />
+          <xs:element minOccurs="0" name="country" type="tns:country" />
+          <xs:element minOccurs="0" name="value" type="xs:decimal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CancelAuthorizationReversal">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CancelAuthorizationRequest" type="tns:cancelAuthorizationRequest" />
+          <xs:element minOccurs="0" name="MerchantHeader" type="tns:merchantHeader" />
+          <xs:element minOccurs="0" name="PurchaseOrderHeader" type="tns:purchaseOrderHeader" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cancelAuthorizationRequest">
+        <xs:sequence>
+          <xs:element name="authorizationCode" type="xs:string" />
+          <xs:element name="originalQpTxnId" type="xs:string" />
+          <xs:element name="amount" type="xs:decimal" />
+          <xs:element name="currency" type="tns:currency" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CancelAuthorizationReversalResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BaseHeader" type="tns:baseHeader" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CreditAuthorizationReversal">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreditAuthorizationRequest" type="tns:creditAuthRequest" />
+          <xs:element minOccurs="0" name="MerchantHeader" type="tns:merchantHeader" />
+          <xs:element minOccurs="0" name="CardPaymentHeader" type="tns:cardPaymentHeader" />
+          <xs:element minOccurs="0" name="ProductListHeader" type="tns:productListHeader" />
+          <xs:element minOccurs="0" name="RiskAssessmentHeader" type="tns:riskAssessmentHeader" />
+          <xs:element minOccurs="0" name="PurchaseOrderHeader" type="tns:purchaseOrderHeader" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="creditAuthRequest">
+        <xs:sequence>
+          <xs:element name="preauthorizationCode" type="xs:string" />
+          <xs:element name="originalQpTxnId" type="xs:string" />
+          <xs:element name="weddingCode" type="xs:string" />
+          <xs:element name="dispatchType" type="tns:dispatchType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CreditAuthorizationReversalResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BaseHeader" type="tns:baseHeader" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DebitAuthorizationReversal">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DebitAuthorizationRequest" type="tns:debitAuthRequest" />
+          <xs:element minOccurs="0" name="MerchantHeader" type="tns:merchantHeader" />
+          <xs:element minOccurs="0" name="UserHeader" type="tns:userHeader" />
+          <xs:element minOccurs="0" name="CardHeader" type="tns:cardHeader" />
+          <xs:element minOccurs="0" name="RiskAssessmentHeader" type="tns:riskAssessmentHeader" />
+          <xs:element minOccurs="0" name="PurchaseOrderHeader" type="tns:purchaseOrderHeader" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="debitAuthRequest">
+        <xs:sequence>
+          <xs:element name="amount" type="xs:decimal" />
+          <xs:element name="currency" type="tns:currency" />
+          <xs:element name="weddingCode" type="xs:string" />
+          <xs:element name="dispatchType" type="tns:dispatchType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DebitAuthorizationReversalResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BaseHeader" type="tns:baseHeader" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CreditAuthorization">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreditAuthorizationRequest" type="tns:creditAuthRequest" />
+          <xs:element minOccurs="0" name="MerchantHeader" type="tns:merchantHeader" />
+          <xs:element minOccurs="0" name="CardPaymentHeader" type="tns:cardPaymentHeader" />
+          <xs:element minOccurs="0" name="ProductListHeader" type="tns:productListHeader" />
+          <xs:element minOccurs="0" name="RiskAssessmentHeader" type="tns:riskAssessmentHeader" />
+          <xs:element minOccurs="0" name="PurchaseOrderHeader" type="tns:purchaseOrderHeader" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CreditAuthorizationResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreditAuthorizationResponse" type="tns:creditAuthResponse" />
+          <xs:element minOccurs="0" name="BaseHeader" type="tns:baseHeader" />
+          <xs:element minOccurs="0" name="CreditLegalInfoHeader" type="tns:creditLegalInfoHeader" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="creditAuthResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authorizationCode" type="xs:string" />
+          <xs:element minOccurs="0" name="totalAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="currency" type="tns:currency" />
+          <xs:element minOccurs="0" name="installments" type="xs:int" />
+          <xs:element minOccurs="0" name="installmentAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="deferred" type="xs:int" />
+          <xs:element minOccurs="0" name="nextPaymentDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="interestRate" type="xs:decimal" />
+          <xs:element minOccurs="0" name="taxes" type="xs:decimal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PreauthorizationReversal">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PreauthorizationRequest" type="tns:preAuthRequest" />
+          <xs:element minOccurs="0" name="MerchantHeader" type="tns:merchantHeader" />
+          <xs:element minOccurs="0" name="UserHeader" type="tns:userHeader" />
+          <xs:element minOccurs="0" name="CardHeader" type="tns:cardHeader" />
+          <xs:element minOccurs="0" name="CardPaymentHeader" type="tns:cardPaymentHeader" />
+          <xs:element minOccurs="0" name="ProductListHeader" type="tns:productListHeader" />
+          <xs:element minOccurs="0" name="RiskAssessmentHeader" type="tns:riskAssessmentHeader" />
+          <xs:element minOccurs="0" name="PurchaseOrderHeader" type="tns:purchaseOrderHeader" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PreauthorizationReversalResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BaseHeader" type="tns:baseHeader" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Void">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="VoidRequest" type="tns:voidRequest" />
+          <xs:element minOccurs="0" name="MerchantHeader" type="tns:merchantHeader" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="voidRequest">
+        <xs:sequence>
+          <xs:element name="approvalId" type="xs:string" />
+          <xs:element name="originalQpTxnId" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="VoidResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="VoidTxnResponse" type="tns:voidTxnResponse" />
+          <xs:element minOccurs="0" name="BaseHeader" type="tns:baseHeader" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="voidTxnResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="deletionCode" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DebitAuthorization">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DebitAuthorizationRequest" type="tns:debitAuthRequest" />
+          <xs:element minOccurs="0" name="MerchantHeader" type="tns:merchantHeader" />
+          <xs:element minOccurs="0" name="UserHeader" type="tns:userHeader" />
+          <xs:element minOccurs="0" name="CardHeader" type="tns:cardHeader" />
+          <xs:element minOccurs="0" name="RiskAssessmentHeader" type="tns:riskAssessmentHeader" />
+          <xs:element minOccurs="0" name="PurchaseOrderHeader" type="tns:purchaseOrderHeader" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DebitAuthorizationResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DebitAuthorizationResponse" type="tns:debitAuthResponse" />
+          <xs:element minOccurs="0" name="BaseHeader" type="tns:baseHeader" />
+          <xs:element minOccurs="0" name="CreditLegalInfoHeader" type="tns:creditLegalInfoHeader" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="debitAuthResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authorizationCode" type="xs:string" />
+          <xs:element minOccurs="0" name="totalAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="currency" type="tns:currency" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CancelAuthorization">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CancelAuthorizationRequest" type="tns:cancelAuthorizationRequest" />
+          <xs:element minOccurs="0" name="MerchantHeader" type="tns:merchantHeader" />
+          <xs:element minOccurs="0" name="UserHeader" type="tns:userHeader" />
+          <xs:element minOccurs="0" name="PurchaseOrderHeader" type="tns:purchaseOrderHeader" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CancelAuthorizationResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CancelAuthResponse" type="tns:cancelAuthResponse" />
+          <xs:element minOccurs="0" name="BaseHeader" type="tns:baseHeader" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cancelAuthResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cancellationCode" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="dispatchType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="RETIRO_TIENDA" />
+          <xs:enumeration value="DESPACHO_NOVIOS" />
+          <xs:enumeration value="DESPACHO_DOMICILIO" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="channel">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="ASL_PLUS" />
+          <xs:enumeration value="B2B" />
+          <xs:enumeration value="B2C" />
+          <xs:enumeration value="COMERCIO_ADHERIDO" />
+          <xs:enumeration value="FONO_COMPRAS" />
+          <xs:enumeration value="HOMY" />
+          <xs:enumeration value="IVR" />
+          <xs:enumeration value="KIOSCO" />
+          <xs:enumeration value="MOBILE" />
+          <xs:enumeration value="PORTAL" />
+          <xs:enumeration value="PRESENCIAL" />
+          <xs:enumeration value="SIX" />
+          <xs:enumeration value="WEB" />
+          <xs:enumeration value="WEB_CMR" />
+          <xs:enumeration value="WEB_PAC" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="country">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="AR" />
+          <xs:enumeration value="CL" />
+          <xs:enumeration value="CO" />
+          <xs:enumeration value="PE" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="documentType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="RUT" />
+          <xs:enumeration value="NIT" />
+          <xs:enumeration value="CEDULA_DE_CIUDADANIA" />
+          <xs:enumeration value="CEDULA_DE_EXTRANJERIA" />
+          <xs:enumeration value="TARJETA_DE_IDENTIDAD" />
+          <xs:enumeration value="PASAPORTE" />
+          <xs:enumeration value="CARNET_DIPLOMATICO" />
+          <xs:enumeration value="DNI" />
+          <xs:enumeration value="CARNET_DE_EXTRANJERIA" />
+          <xs:enumeration value="CARNET_FFPP" />
+          <xs:enumeration value="CARNET_FFAA" />
+          <xs:enumeration value="LIBRETA_CIVICA" />
+          <xs:enumeration value="LIBRETA_ENROLAMIENTO" />
+          <xs:enumeration value="PRESTAMOS_SODIMAC_MUTUAL" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="currency">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="ARS" />
+          <xs:enumeration value="CLP" />
+          <xs:enumeration value="COP" />
+          <xs:enumeration value="PEN" />
+          <xs:enumeration value="USD" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="rateType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="TIEA" />
+          <xs:enumeration value="TCEA" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="CancelAuthorizationReversal">
+    <wsdl:part name="parameters" element="tns:CancelAuthorizationReversal" />
+  </wsdl:message>
+  <wsdl:message name="CancelAuthorizationReversalResponse">
+    <wsdl:part name="parameters" element="tns:CancelAuthorizationReversalResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelAuthorizationResponse">
+    <wsdl:part name="parameters" element="tns:CancelAuthorizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreditAuthorization">
+    <wsdl:part name="parameters" element="tns:CreditAuthorization" />
+  </wsdl:message>
+  <wsdl:message name="CreditAuthorizationResponse">
+    <wsdl:part name="parameters" element="tns:CreditAuthorizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="DebitAuthorizationResponse">
+    <wsdl:part name="parameters" element="tns:DebitAuthorizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="VoidResponse">
+    <wsdl:part name="parameters" element="tns:VoidResponse" />
+  </wsdl:message>
+  <wsdl:message name="DebitAuthorization">
+    <wsdl:part name="parameters" element="tns:DebitAuthorization" />
+  </wsdl:message>
+  <wsdl:message name="Void">
+    <wsdl:part name="parameters" element="tns:Void" />
+  </wsdl:message>
+  <wsdl:message name="PreauthorizationReversal">
+    <wsdl:part name="parameters" element="tns:PreauthorizationReversal" />
+  </wsdl:message>
+  <wsdl:message name="CreditAuthorizationReversalResponse">
+    <wsdl:part name="parameters" element="tns:CreditAuthorizationReversalResponse" />
+  </wsdl:message>
+  <wsdl:message name="DebitAuthorizationReversalResponse">
+    <wsdl:part name="parameters" element="tns:DebitAuthorizationReversalResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelAuthorization">
+    <wsdl:part name="parameters" element="tns:CancelAuthorization" />
+  </wsdl:message>
+  <wsdl:message name="Preauthorization">
+    <wsdl:part name="parameters" element="tns:Preauthorization" />
+  </wsdl:message>
+  <wsdl:message name="CreditAuthorizationReversal">
+    <wsdl:part name="parameters" element="tns:CreditAuthorizationReversal" />
+  </wsdl:message>
+  <wsdl:message name="PreauthorizationResponse">
+    <wsdl:part name="parameters" element="tns:PreauthorizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="PreauthorizationReversalResponse">
+    <wsdl:part name="parameters" element="tns:PreauthorizationReversalResponse" />
+  </wsdl:message>
+  <wsdl:message name="DebitAuthorizationReversal">
+    <wsdl:part name="parameters" element="tns:DebitAuthorizationReversal" />
+  </wsdl:message>
+  <wsdl:portType name="FinancialController">
+    <wsdl:operation name="Preauthorization">
+      <wsdl:input name="Preauthorization" message="tns:Preauthorization" />
+      <wsdl:output name="PreauthorizationResponse" message="tns:PreauthorizationResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelAuthorizationReversal">
+      <wsdl:input name="CancelAuthorizationReversal" message="tns:CancelAuthorizationReversal" />
+      <wsdl:output name="CancelAuthorizationReversalResponse" message="tns:CancelAuthorizationReversalResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CreditAuthorizationReversal">
+      <wsdl:input name="CreditAuthorizationReversal" message="tns:CreditAuthorizationReversal" />
+      <wsdl:output name="CreditAuthorizationReversalResponse" message="tns:CreditAuthorizationReversalResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="DebitAuthorizationReversal">
+      <wsdl:input name="DebitAuthorizationReversal" message="tns:DebitAuthorizationReversal" />
+      <wsdl:output name="DebitAuthorizationReversalResponse" message="tns:DebitAuthorizationReversalResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CreditAuthorization">
+      <wsdl:input name="CreditAuthorization" message="tns:CreditAuthorization" />
+      <wsdl:output name="CreditAuthorizationResponse" message="tns:CreditAuthorizationResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="PreauthorizationReversal">
+      <wsdl:input name="PreauthorizationReversal" message="tns:PreauthorizationReversal" />
+      <wsdl:output name="PreauthorizationReversalResponse" message="tns:PreauthorizationReversalResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="Void">
+      <wsdl:input name="Void" message="tns:Void" />
+      <wsdl:output name="VoidResponse" message="tns:VoidResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="DebitAuthorization">
+      <wsdl:input name="DebitAuthorization" message="tns:DebitAuthorization" />
+      <wsdl:output name="DebitAuthorizationResponse" message="tns:DebitAuthorizationResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelAuthorization">
+      <wsdl:input name="CancelAuthorization" message="tns:CancelAuthorization" />
+      <wsdl:output name="CancelAuthorizationResponse" message="tns:CancelAuthorizationResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="QuickPayFinancialSoapBinding" type="tns:FinancialController">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CancelAuthorizationReversal">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="CancelAuthorizationReversal">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CancelAuthorizationReversalResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Preauthorization">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="Preauthorization">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="PreauthorizationResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreditAuthorizationReversal">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="CreditAuthorizationReversal">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CreditAuthorizationReversalResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DebitAuthorizationReversal">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="DebitAuthorizationReversal">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="DebitAuthorizationReversalResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreditAuthorization">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="CreditAuthorization">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CreditAuthorizationResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PreauthorizationReversal">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="PreauthorizationReversal">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="PreauthorizationReversalResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DebitAuthorization">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="DebitAuthorization">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="DebitAuthorizationResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Void">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="Void">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="VoidResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelAuthorization">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="CancelAuthorization">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CancelAuthorizationResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="QuickPayFinancial">
+    <wsdl:port name="FinancialControllerPort" binding="tns:QuickPayFinancialSoapBinding">
+      <soap:address location="https://falabella.moremagic.com/soapcon/financial" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
