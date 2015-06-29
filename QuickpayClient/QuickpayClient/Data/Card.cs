@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace QuickpayClient.Data
 {
-	public struct CreditCard
+	public struct Card
 	{
-		public long Pan { get; set; }
-		public int Cvv { get; set; }
-		public int Exp { get; set; }
+		public string Pan { get; set; }
+		public string Cvv { get; set; }
+		public string Exp { get; set; }
 	}
 }

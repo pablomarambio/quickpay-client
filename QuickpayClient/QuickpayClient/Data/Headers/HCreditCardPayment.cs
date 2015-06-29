@@ -9,6 +9,7 @@ namespace QuickpayClient.Data.Headers
 	public class HCreditCardPayment
 	{
 		public CreditCardPayment PaymentData { get; set; }
+
 		public static Quickpay.currency ConvertCurrencyType(CurrencyType c)
 		{
 			switch (c)

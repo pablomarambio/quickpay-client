@@ -11,10 +11,17 @@ namespace QuickpayClient.Transactions
 	public abstract class FinancialTransaction : Transaction
 	{
 		public HCreditCardPayment CardPaymentHeader { get; set; }
-		public FinancialTransaction(string authKey, HMerchant merchantHeader, HCreditCardPayment cardPaymentHeader) :
+		public HUser UserHeader { get; set; }
+
+		public FinancialTransaction(
+			string authKey, 
+			HMerchant merchantHeader, 
+			HCreditCardPayment cardPaymentHeader,
+			HUser userHeader) :
 			base(authKey, merchantHeader)
 		{
 			this.CardPaymentHeader = cardPaymentHeader;
+			this.UserHeader = userHeader;
 		}
 
 		protected override string ComputeSignatureSeed()

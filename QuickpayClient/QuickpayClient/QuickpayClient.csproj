@@ -43,11 +43,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller.cs" />
-    <Compile Include="Data\CreditCard.cs" />
+    <Compile Include="Data\Card.cs" />
     <Compile Include="Data\CreditCardPayment.cs" />
+    <Compile Include="Data\Headers\HCard.cs" />
     <Compile Include="Data\Headers\HCreditCardPayment.cs" />
     <Compile Include="Data\Headers\HMerchant.cs" />
+    <Compile Include="Data\Headers\HUser.cs" />
     <Compile Include="Data\Merchant.cs" />
+    <Compile Include="Data\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\Quickpay\Reference.cs">
       <AutoGen>True</AutoGen>

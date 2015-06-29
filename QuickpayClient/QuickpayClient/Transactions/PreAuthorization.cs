@@ -9,8 +9,12 @@ namespace QuickpayClient.Transactions
 {
 	public class PreAuthorization : FinancialTransaction
 	{
-		public PreAuthorization(string authKey, HMerchant merchantHeader, HCreditCardPayment cardPaymentHeader) :
-			base(authKey, merchantHeader, cardPaymentHeader)
+		public PreAuthorization(
+			string authKey, 
+			HMerchant merchantHeader, 
+			HCreditCardPayment cardPaymentHeader,
+			HUser userHeader) :
+			base(authKey, merchantHeader, cardPaymentHeader, userHeader)
 		{ }
 
 		public override string TransactionName { get { return "Preauthorization"; } }
@@ -22,7 +26,8 @@ namespace QuickpayClient.Transactions
 			cont.Preauthorization(
 				new Quickpay.preAuthRequest() { customerEmailAddress = null, customerPhoneNumber = null, weddingCode = null, dispatchType = Quickpay.dispatchType.DESPACHO_DOMICILIO },
 				MerchantHeader.ToProxyObj(),
-				null, null,
+				UserHeader.ToProxyObj(),
+				null,
 				CardPaymentHeader.ToProxyObj(),
 				null, null, null,
 				out bh,
