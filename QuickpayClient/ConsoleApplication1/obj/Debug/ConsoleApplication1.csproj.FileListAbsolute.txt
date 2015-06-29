@@ -7,3 +7,6 @@ c:\users\pablo\documents\visual studio 2015\Projects\ConsoleApplication1\Console
 C:\Users\pablo\Source\Repos\quickpay-client\QuickpayClient\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
 C:\Users\pablo\Source\Repos\quickpay-client\QuickpayClient\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
 C:\Users\pablo\Source\Repos\quickpay-client\QuickpayClient\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\Users\pablo\Source\Repos\quickpay-client\QuickpayClient\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\pablo\Source\Repos\quickpay-client\QuickpayClient\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\pablo\Source\Repos\quickpay-client\QuickpayClient\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
